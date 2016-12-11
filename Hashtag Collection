@@ -1,0 +1,23 @@
+str = '#ThrowbackThursday, I love #brains today is #dope.'
+
+import re
+import os
+import pandas as pd
+import numpy as np
+from string import punctuation
+
+hashtags = re.findall('#\S*',str)
+hashtags
+os.chdir('/Users/meganstiles/Desktop/')
+
+posts = pd.read_csv('Facebook Insights .csv', encoding = 'latin-1')
+hashtags = []
+for text in range(1,len(posts)):
+    tweet = posts['Post Message'][text]
+    tweet = re.sub("[:!.,]", '', tweet)
+    hashes = re.findall('#\S*', tweet)
+    for tag in hashes:
+        hashtags.append(tag)
+
+unique_hashtags =np.unique(hashtags)
+unique_hashtags
