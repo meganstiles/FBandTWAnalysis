@@ -1,0 +1,13 @@
+#Import Funtions
+import Social_Analysis as so
+
+#Set Working Directory to location of source files:
+os.chdir('/Users/meganstiles/Desktop/Bowen/December 2016/')
+
+#Read in Files
+Posts = pd.read_csv('POsts 12-11.csv',encoding= 'latin-1')
+Engagement = pd.read_csv('Engagements 12-11.csv', encoding= 'latin-1')
+Links = pd.read_csv('Links 12-11.csv', encoding= 'latin-1')
+
+#Analyze Facebook Insights
+so.get_analysis(Posts, Engagement, Links)
