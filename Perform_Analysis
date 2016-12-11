@@ -11,3 +11,15 @@ Links = pd.read_csv('Links 12-11.csv', encoding= 'latin-1')
 
 #Analyze Facebook Insights
 so.get_analysis(Posts, Engagement, Links)
+
+#Twitter Analysis
+
+#Set Working Directory
+
+os.chdir('/Users/meganstiles/Downloads/')
+
+#Read in file
+
+Tweets = pd.read_csv('tweet_activity_metrics_asdmra_20161205_20161212_en.csv')
+
+so.get_Tweets(Tweets)

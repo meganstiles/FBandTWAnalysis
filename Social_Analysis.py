@@ -5,10 +5,6 @@ import numpy as np
 from string import punctuation
 from collections import Counter
 
-#os.chdir('/Users/meganstiles/Desktop/Bowen/December 2016/')
-#file1 = pd.read_csv('12-4 Metrics.csv', encoding = 'latin-1')
-#file2 = pd.read_csv('12-4 Engagements.csv', encoding= 'latin-1')   
-#file3 = pd.read_csv('12-4 Links.csv', encoding= 'latin-1') 
 def get_analysis(file1,file2,file3):
     #Read in File 1 
     file1 = file1.drop([0])
@@ -58,12 +54,9 @@ def get_analysis(file1,file2,file3):
     str1 = ''.join(str(e) for e in unique_hashtags)
     print(str1)
     
-#get_analysis(file1,file2,file3)
 
 #Twitter
 
-#os.chdir('/Users/meganstiles/Desktop/Bowen/December 2016/')
-#file1 = pd.read_csv('tweet_activity_metrics_asdmra_20161128_20161205_en.csv', encoding = 'latin-1')
 
 def get_Tweets(file1):
     #Read in File 1 
@@ -110,10 +103,6 @@ def get_Tweets(file1):
 get_Tweets(file1)
 
 
-#Just Hashtags for Facebook
-#os.chdir('/Users/meganstiles/Desktop/Bowen/November 2016/')
-#file1 = pd.read_csv('November Metrics.csv', encoding = 'latin-1')
-
 def get_FBHashtags(file1):
     file1 = file1.drop([0])
     hashtags = []
@@ -131,9 +120,6 @@ def get_FBHashtags(file1):
     print(str1)
     file1[1]
 
-#Hashtags for Twitter
-#os.chdir('/Users/meganstiles/Downloads/')
-#file1 = pd.read_csv('tweet_activity_metrics_asdmra_20161101_20161201_en.csv', encoding = 'latin-1')
 
 def get_TWHashtags(file1):
     hashtags = []
