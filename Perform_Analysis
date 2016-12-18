@@ -1,13 +1,14 @@
 #Import Funtions
+os.chdir('/Users/meganstiles/Desktop/FBandTWAnalysis/')
 import Social_Analysis as so
 
 #Set Working Directory to location of source files:
 os.chdir('/Users/meganstiles/Desktop/Bowen/December 2016/')
 
 #Read in Files
-Posts = pd.read_csv('POsts 12-11.csv',encoding= 'latin-1')
-Engagement = pd.read_csv('Engagements 12-11.csv', encoding= 'latin-1')
-Links = pd.read_csv('Links 12-11.csv', encoding= 'latin-1')
+Posts = pd.read_csv('12-18 Metrics.csv',encoding= 'latin-1')
+Engagement = pd.read_csv('12-18 Engagements.csv', encoding= 'latin-1')
+Links = pd.read_csv('12-18 Links.csv', encoding= 'latin-1')
 
 #Analyze Facebook Insights
 so.get_analysis(Posts, Engagement, Links)
@@ -16,10 +17,10 @@ so.get_analysis(Posts, Engagement, Links)
 
 #Set Working Directory
 
-os.chdir('/Users/meganstiles/Downloads/')
+os.chdir('/Users/meganstiles/Desktop/Bowen/December 2016/')
 
 #Read in file
 
-Tweets = pd.read_csv('tweet_activity_metrics_asdmra_20161205_20161212_en.csv')
+Tweets = pd.read_csv('tweet_activity_metrics_asdmra_20161212_20161219_en.csv')
 
 so.get_Tweets(Tweets)

@@ -100,7 +100,7 @@ def get_Tweets(file1):
     print(Counter(hashtags))
     str1 = ''.join(str(e) for e in unique_hashtags)
     print(str1)
-get_Tweets(file1)
+
 
 
 def get_FBHashtags(file1):
