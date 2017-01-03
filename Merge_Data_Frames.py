@@ -27,11 +27,11 @@ def merge_fb_files(Posts,Engagements,Links):
     Links_clean_2 = Links_clean[[1,9]]
 
     #Concatinate columns into One Data Frame
-    Data = pd.concat([Total, Links_clean_2,Engagements_clean_2], axis =1, join= 'inner')
-    Data = Data[[1,2,3,4,5,7,9,10,11]]
-
+    Data = pd.merge(left = Total,right=Links_clean_2, left_on= 'Post ID', right_on= 'Post ID')
+    Data_Final = pd.merge(left = Data, right = Engagements_clean_2, left_on= 'Post ID', right_on= 'Post ID')
+  
     #Write out CSV
-    Data.to_csv('FB_Clean.csv')
+    Data_Final.to_csv('FB_Clean.csv')
 
 #Twitter = pd.read_csv('tweet_activity_metrics_asdmra_20161212_20161219_en.csv')    
 def merge_Twitter_files(file):

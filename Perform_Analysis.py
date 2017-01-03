@@ -3,12 +3,12 @@ os.chdir('/Users/meganstiles/Desktop/FBandTWAnalysis/')
 import Social_Analysis as so
 import Merge_Data_Frames as me 
 #Set Working Directory to location of source files:
-os.chdir('/Users/meganstiles/Desktop/Bowen/December 2016/')
+os.chdir('/Users/meganstiles/Desktop/Bowen/January 2017/')
 
 #Read in Files
-Posts = pd.read_csv('Metrics 12-25.csv',encoding= 'latin-1')
-Engagement = pd.read_csv('Engagements 12-25.csv', encoding= 'latin-1')
-Links = pd.read_csv('Links 12-25.csv', encoding= 'latin-1')
+Posts = pd.read_csv('Jan 2 Metrics.csv',encoding= 'latin-1')
+Engagement = pd.read_csv('Jan 2 Engagement.csv', encoding= 'latin-1')
+Links = pd.read_csv('Jan 2 Links.csv', encoding= 'latin-1')
 
 #Analyze Facebook Insights
 so.get_analysis(Posts, Engagement, Links)
@@ -27,11 +27,11 @@ so.get_Tweets(Tweets)
 
 #Merge FB Data Sets
 
-Posts_file = pd.read_csv('Metrics 12-25.csv',encoding= 'latin-1')
-Engagement_file = pd.read_csv('Engagements 12-25.csv', encoding= 'latin-1')
-Links_file = pd.read_csv('Links 12-25.csv', encoding= 'latin-1')
+#Posts_file = pd.read_csv('Metrics 12-25.csv',encoding= 'latin-1')
+#Engagement_file = pd.read_csv('Engagements 12-25.csv', encoding= 'latin-1')
+#Links_file = pd.read_csv('Links 12-25.csv', encoding= 'latin-1')
 
-me.merge_fb_files(Posts_file,Engagement_file, Links_file)
+me.merge_fb_files(Posts,Engagement, Links)
 
 #Clean Twitter DF
 
