@@ -19,16 +19,21 @@ FB_Data[is.na(FB_Data)] <- 0
 
 FB_Data$Engagement = (FB_Data$comment + FB_Data$like + FB_Data$share)
 
+#Find Total Engagement
+
+sum(FB_Data$Engagement)
+
 #find Total Reach for Month
 
 sum(FB_Data$Lifetime.Post.organic.reach)
+
 #Separate Posts by type
 
 FB_Link_Posts<- FB_Data[FB_Data$Type == 'Link',]
 FB_Photo_Posts<- FB_Data[FB_Data$Type == 'Photo',]
 FB_SharedVideo_Posts<- FB_Data[FB_Data$Type == 'SharedVideo',]
 FB_Status_Posts<- FB_Data[FB_Data$Type == 'Status',]
-
+FB_Video_Posts<- FB_Data[FB_Data$Type == 'Video',]
 #Find Reach of posts by type
 
 print( 'The reach of link posts is:')
@@ -43,6 +48,9 @@ sum(FB_SharedVideo_Posts$Lifetime.Post.organic.reach)
 print( 'The reach of Status posts is:')
 sum(FB_Status_Posts$Lifetime.Post.organic.reach)
 
+print( 'The reach of Video posts is:')
+sum(FB_Video_Posts$Lifetime.Post.organic.reach)
+
 #Find Total Engagement by Post Type
 
 print('The engaagement of link posts is:')
@@ -56,6 +64,9 @@ sum(FB_SharedVideo_Posts$Engagement)
 
 print('The engaagement of status posts is:')
 sum(FB_Status_Posts$Engagement)
+
+print('The engaagement of video posts is:')
+sum(FB_Video_Posts$Engagement)
 
 ###############################
 ###Twitter Analysis###########
