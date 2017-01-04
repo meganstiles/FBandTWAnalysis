@@ -22,9 +22,9 @@ def merge_fb_files(Posts,Engagements,Links):
     Links_clean = Links.convert_objects(convert_numeric=True)
 
     #Subset files with columns I need
-    Total = Posts_clean_2[[0,1,2,3, 6, 9]]
-    Engagements_clean_2 = Engagements_clean[[1,9,10,11]]
-    Links_clean_2 = Links_clean[[1,9]]
+    Total = Posts_clean_2[['Post ID', 'Permalink', 'Post Message', 'Lifetime Post organic reach']]
+    Engagements_clean_2 = Engagements_clean[['Post ID', 'comment', 'like', 'share']]
+    Links_clean_2 = Links_clean[['Post ID','link clicks']]
 
     #Concatinate columns into One Data Frame
     Data = pd.merge(left = Total,right=Links_clean_2, left_on= 'Post ID', right_on= 'Post ID')

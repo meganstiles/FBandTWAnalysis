@@ -6,9 +6,9 @@ import Merge_Data_Frames as me
 os.chdir('/Users/meganstiles/Desktop/Bowen/January 2017/')
 
 #Read in Files
-Posts = pd.read_csv('Jan 2 Metrics.csv',encoding= 'latin-1')
-Engagement = pd.read_csv('Jan 2 Engagement.csv', encoding= 'latin-1')
-Links = pd.read_csv('Jan 2 Links.csv', encoding= 'latin-1')
+Posts = pd.read_csv('December Metrics.csv',encoding= 'latin-1')
+Engagement = pd.read_csv('December Engagements.csv', encoding= 'latin-1')
+Links = pd.read_csv('December Links.csv', encoding= 'latin-1')
 
 #Analyze Facebook Insights
 so.get_analysis(Posts, Engagement, Links)
@@ -17,11 +17,11 @@ so.get_analysis(Posts, Engagement, Links)
 
 #Set Working Directory
 
-os.chdir('/Users/meganstiles/Desktop/Bowen/December 2016/')
+os.chdir('/Users/meganstiles/Desktop/Bowen/January 2017/')
 
 #Read in file
 
-Tweets = pd.read_csv('tweet_activity_metrics_asdmra_20161219_20161226_en.csv')
+Tweets = pd.read_csv('December_Tweets.csv')
 
 so.get_Tweets(Tweets)
 
