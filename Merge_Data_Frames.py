@@ -22,7 +22,7 @@ def merge_fb_files(Posts,Engagements,Links):
     Links_clean = Links.convert_objects(convert_numeric=True)
 
     #Subset files with columns I need
-    Total = Posts_clean_2[['Post ID', 'Permalink', 'Post Message', 'Lifetime Post organic reach', 'Type']]
+    Total = Posts_clean_2[['Post ID', 'Permalink', 'Post Message', 'Lifetime Post organic reach', 'Type', 'Posted']]
     Engagements_clean_2 = Engagements_clean[['Post ID', 'comment', 'like', 'share']]
     Links_clean_2 = Links_clean[['Post ID','link clicks']]
 

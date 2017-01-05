@@ -6,9 +6,9 @@ import Merge_Data_Frames as me
 os.chdir('/Users/meganstiles/Desktop/Bowen/January 2017/')
 
 #Read in Files
-Posts = pd.read_csv('December Metrics.csv',encoding= 'latin-1')
-Engagement = pd.read_csv('December Engagements.csv', encoding= 'latin-1')
-Links = pd.read_csv('December Links.csv', encoding= 'latin-1')
+Posts = pd.read_csv('12-5-1-1 Metrics.csv',encoding= 'latin-1')
+Engagement = pd.read_csv('12-5-1-1 Engagements.csv', encoding= 'latin-1')
+Links = pd.read_csv('12-5-1-1 Links.csv', encoding= 'latin-1')
 
 #Analyze Facebook Insights
 so.get_analysis(Posts, Engagement, Links)
