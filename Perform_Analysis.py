@@ -6,9 +6,9 @@ import Merge_Data_Frames as me
 os.chdir('/Users/meganstiles/Desktop/Bowen/January 2017/')
 
 #Read in Files
-Posts = pd.read_csv('12-5-1-1 Metrics.csv',encoding= 'latin-1')
-Engagement = pd.read_csv('12-5-1-1 Engagements.csv', encoding= 'latin-1')
-Links = pd.read_csv('12-5-1-1 Links.csv', encoding= 'latin-1')
+Posts = pd.read_csv('Jan 16 Metrics.csv',encoding= 'latin-1')
+Engagement = pd.read_csv('Jan 16 Engagements.csv', encoding= 'latin-1')
+Links = pd.read_csv('Jan 16 Links.csv', encoding= 'latin-1')
 
 #Analyze Facebook Insights
 so.get_analysis(Posts, Engagement, Links)
@@ -21,7 +21,7 @@ os.chdir('/Users/meganstiles/Desktop/Bowen/January 2017/')
 
 #Read in file
 
-Tweets = pd.read_csv('December_Tweets.csv')
+Tweets = pd.read_csv('Jan 16 Tweets.csv')
 
 so.get_Tweets(Tweets)
 
@@ -36,3 +36,8 @@ me.merge_fb_files(Posts,Engagement, Links)
 #Clean Twitter DF
 
 me.merge_Twitter_files(Tweets)
+
+#Facebook Hashtags
+
+so.get_FBHashtags(Posts)
+

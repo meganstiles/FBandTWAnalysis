@@ -42,7 +42,7 @@ def get_analysis(file1,file2,file3):
     hashtags = []
     for text in range(1,len(file1)):
         post = file1['Post Message'][text]
-        post = re.sub("[:!.,]", '', post)
+        post = re.sub(r"[:!.,]", '', post)
         hashes = re.findall('#\S*', post)
         for tag in hashes:
             hashtags.append(tag)
@@ -107,7 +107,7 @@ def get_FBHashtags(file1):
     file1 = file1.drop([0])
     hashtags = []
     for text in range(1,len(file1)):
-        post = file1['Post Message'][text]
+        post = str(file1['Post Message'][text])
         post = re.sub("[:!.,]", '', post)
         hashes = re.findall('#\S*', post)
         for tag in hashes:
