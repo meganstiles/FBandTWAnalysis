@@ -74,7 +74,7 @@ sum(FB_Video_Posts$Engagement)
 
 #Read in Data
 
-TW_Data<- read.csv('December_Tweets.csv')
+TW_Data<- read.csv('Jan Tweets.csv')
 
 #Find Total Reach for Month
 
@@ -85,3 +85,4 @@ TW_Data$Total_Engagement<- (TW_Data$retweets + TW_Data$replies + TW_Data$likes +
 
 #Find Total Engagement
 sum(TW_Data$Total_Engagement)
+
