@@ -3,12 +3,12 @@ os.chdir('/Users/meganstiles/Desktop/github/FBandTWAnalysis/')
 import Social_Analysis as so
 import Merge_Data_Frames as me 
 #Set Working Directory to location of source files:
-os.chdir('/Users/meganstiles/Desktop/Bowen/January 2017/')
+os.chdir('/Users/meganstiles/Desktop/Bowen/February 2017/')
 
 #Read in Files
-Posts = pd.read_csv('Jan 29 Metrics.csv',encoding= 'latin-1')
-Engagement = pd.read_csv('Jan 29 Engagements.csv', encoding= 'latin-1')
-Links = pd.read_csv('Jan 29 Links.csv', encoding= 'latin-1')
+Posts = pd.read_csv('Feb 5 Metrics.csv',encoding= 'latin-1')
+Engagement = pd.read_csv('Feb 5 Engagements.csv', encoding= 'latin-1')
+Links = pd.read_csv('Feb 5 Links.csv', encoding= 'latin-1')
 
 #Analyze Facebook Insights
 so.get_analysis(Posts, Engagement, Links)
@@ -21,7 +21,7 @@ os.chdir('/Users/meganstiles/Desktop/Bowen/January 2017/')
 
 #Read in file
 
-Tweets = pd.read_csv('Jan 29 Tweets.csv')
+Tweets = pd.read_csv('Feb 5 Tweets.csv')
 
 so.get_Tweets(Tweets)
 
@@ -41,3 +41,15 @@ me.merge_Twitter_files(Tweets)
 
 so.get_FBHashtags(Posts)
 
+#Fix Date
+
+Tweets['time'][1]
+type(Tweets['time'][1])
+list = []
+for i in range(0,len(Tweets)):
+    x = re.sub('+0000', '', Tweets['time'][i])
+    list.append(x)
+
+Tweets['Date'] = list
+
+Tweets.to_csv('Tweets.Date.csv')

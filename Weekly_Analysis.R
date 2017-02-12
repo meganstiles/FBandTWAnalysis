@@ -1,9 +1,88 @@
 library(dplyr)
 library(lubridate)
-
 #Set WD
-setwd("~/Desktop/Bowen/January 2017")
+setwd("~/Desktop/Bowen/February 2017/Feb 12 2017/")
 
+##############################
+##### Average Daily Reach#####
+##############################
+
+FB_Weekly_Data<- read.csv('FB_Clean.csv')
+
+#Replace NAs with 0
+
+FB_Weekly_Data[is.na(FB_Weekly_Data)] <- 0
+
+FB_Weekly_Data$Engagement = (FB_Weekly_Data$comment + FB_Weekly_Data$like + FB_Weekly_Data$share)
+
+#Create Date Column
+Dates <- format(as.POSIXct(strptime(FB_Weekly_Data$Posted,"%m/%d/%y %H:%M %p",tz="")) ,format = "%m/%d/%y")
+FB_Weekly_Data$Date<- as.Date(Dates, '%m/%d/%y')
+
+# Group by Date
+
+by_date<- group_by(FB_Weekly_Data, Date)
+average_reach<- summarise(by_date, meanReach = mean(Lifetime.Post.organic.reach))
+average_reach
+
+total_reach<- summarise(by_date, total = sum(Lifetime.Post.organic.reach))
+total_reach
+
+#Average Post reach
+total = sum(FB_Weekly_Data$Lifetime.Post.organic.reach)
+total
+length(FB_Weekly_Data$Post.ID)
+total/length(FB_Weekly_Data$Post.ID)
+
+#Average Post Engagement
+
+total_engagement = sum(FB_Weekly_Data$Engagement)
+avg_engagement = total_engagement/21
+avg_engagement
+#############################
+#### Monthly Averages########
+#############################
+setwd('/Users/meganstiles/Desktop/Bowen/January 2017')
+Monthly_Data<- read.csv('FB_Clean.csv')
+
+Monthly_Data[is.na(Monthly_Data)] <- 0
+
+#Average Post Reach
+mean(Monthly_Data$Lifetime.Post.organic.reach)
+
+#Create Date Column
+Dates <- format(as.POSIXct(strptime(Monthly_Data$Posted,"%m/%d/%y %H:%M %p",tz="")) ,format = "%m/%d/%y")
+Monthly_Data$Date<- as.Date(Dates, '%m/%d/%y')
+
+by_date_monthly<- group_by(Monthly_Data, Date)
+
+average_daily_reach<- summarise(by_date_monthly, totalreach = sum(Lifetime.Post.organic.reach))
+average_daily_reach
+
+#Average Daily Reach
+
+mean(average_daily_reach$totalreach)
+
+
+############################
+## Average MOnthly Engagement##
+##############################
+
+Monthly_Data$Engagement = (Monthly_Data$comment + Monthly_Data$like + Monthly_Data$share)
+
+mean(Monthly_Data$Engagement)
+
+by_date<- group_by(Monthly_Data, Date)
+average_engagement<- summarise(by_date, totalEngagement = sum(Engagement))
+mean(average_engagement$totalEngagement)
+
+#############################
+##Daily Average User Engagement
+##############################
+
+by_date<- group_by(FB_Weekly_Data, Date)
+average_engagement<- summarise(by_date, meanEngagement = mean(Engagement))
+average_engagement
 
 ##############################
 #### Facebook Analysis########
@@ -151,3 +230,19 @@ by_month = group_by(Likes_total, Month)
 Likes = read.csv('Weekly Likes.csv')
 Likes_subset = Likes[, c('Date', 'Lifetime.Total.Likes')]
 
+################
+## Twitter#####
+###############
+
+setwd('/Users/meganstiles/Desktop/Bowen/February 2017')
+
+tweets<- read.csv('Tweets.Date.csv')
+
+#Create Date Column
+Dates <- format(as.POSIXct(strptime(tweets$Date,"%y-%d-%m %H:%M ",tz="")) ,format = "%m/%d/%y")
+tweets$posted<- as.Date(Dates, '%m/%d/%y')
+
+for (i in (1:length(tweets))){
+  tweets$time[i] = sub('+0000', '', tweets$time[i])
+}
+length(tweets)
