@@ -1,7 +1,7 @@
 library(dplyr)
 library(lubridate)
 #Set WD
-setwd("~/Desktop/Bowen/February 2017/Feb 12 2017/")
+setwd("~/Desktop/Bowen/February 2017/Feb 26 2017/")
 
 ##############################
 ##### Average Daily Reach#####
@@ -37,8 +37,14 @@ total/length(FB_Weekly_Data$Post.ID)
 #Average Post Engagement
 
 total_engagement = sum(FB_Weekly_Data$Engagement)
-avg_engagement = total_engagement/21
+avg_engagement = total_engagement/length(FB_Weekly_Data$Post.ID)
 avg_engagement
+
+####Twitter
+
+tweets<- read.csv('Tweets_clean.csv')
+
+sum(tweets$impressions)
 #############################
 #### Monthly Averages########
 #############################

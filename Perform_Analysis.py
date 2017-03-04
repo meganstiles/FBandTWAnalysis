@@ -3,12 +3,12 @@ os.chdir('/Users/meganstiles/Desktop/github/FBandTWAnalysis/')
 import Social_Analysis as so
 import Merge_Data_Frames as me 
 #Set Working Directory to location of source files:
-os.chdir('/Users/meganstiles/Desktop/Bowen/February 2017/')
+os.chdir('/Users/meganstiles/Desktop/Bowen/February 2017/Feb 12 2017')
 
 #Read in Files
-Posts = pd.read_csv('Feb 5 Metrics.csv',encoding= 'latin-1')
-Engagement = pd.read_csv('Feb 5 Engagements.csv', encoding= 'latin-1')
-Links = pd.read_csv('Feb 5 Links.csv', encoding= 'latin-1')
+Posts = pd.read_csv('Metrics.csv',encoding= 'latin-1')
+Engagement = pd.read_csv('Engagement.csv', encoding= 'latin-1')
+Links = pd.read_csv('Links.csv', encoding= 'latin-1')
 
 #Analyze Facebook Insights
 so.get_analysis(Posts, Engagement, Links)
